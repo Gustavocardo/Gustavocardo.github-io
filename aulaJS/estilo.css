@@ -1,0 +1,18 @@
+bod{
+    background-color: black;
+}
+
+.resposta{
+    margin: 20px; padding: 5px; text-align: center;}
+    .errada{background-color: crimson;
+        border: 2px dotted orchid;
+        outline: 2px dashed green;
+        color: darkred;
+}
+  .correta {
+      background-color: deeppink;
+      border: 3px dotted cyan;
+      outline: 2px dashed blue;
+      color: aqua;
+
+   }      
