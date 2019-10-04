@@ -48,7 +48,7 @@ function setup() {
 
 //Um looping sempre, desenha o que tem dentro
 function draw() {
-  background("Green");    
+  background("grey");    
   stroke(255);
   strokeWeight(2);
   line(metadeTela,0,metadeTela,alturaTela);
