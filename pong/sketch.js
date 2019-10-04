@@ -10,10 +10,11 @@ let metadeTela = larguraTela/2;
 let xBolinha = 300;
 let yBolinha = 200;
 let diametro = 30;
-let velocidadeX = 13;
-let velocidadeY = 13;
+let velocidadeX = 11;
+let velocidadeY = 11;
 let raio = diametro / 2;
-let aumentodaVelocidade =
+let aumentoVelocidade = 1.5;
+
 
 //Variáveis das raquetes
 let velocidadeRaquete = 20;
@@ -47,11 +48,11 @@ function setup() {
 
 //Um looping sempre, desenha o que tem dentro
 function draw() {
-  background("deepskyblue");    
+  background("Green");    
   stroke(255);
   strokeWeight(2);
   line(metadeTela,0,metadeTela,alturaTela);
-  if(frameCount < 400) //10 segundos
+  if(frameCount < 200) //10 segundos
     telaInicial();
   else
     jogar();  
@@ -62,8 +63,8 @@ function telaInicial(){
   rect(larguraTela/4,0 ,metadeTela, alturaTela);
   textAlign(CENTER);
   textSize(24);
-  fill("pink");
-  text("Ping Pong do Kamikaze_Gm", metadeTela, alturaTela/2);
+  fill("white");
+  text("Ping Pong do Gustavo", metadeTela, alturaTela/2);
 }
 
 function jogar(){
@@ -89,15 +90,15 @@ function letrasVenceu(){
   fill("Red");
   rect(0,0,metadeTela,alturaTela);
   textSize(40);
-  fill("blue");
+  fill("White");
   textAlign(CENTER);
   text("Letras venceu",metadeTela/2, alturaTela/2);
 }
 function setasVenceu(){
-  fill("black");
+  fill("Black");
   rect(metadeTela,0,larguraTela,alturaTela);
   textSize(40);
-  fill("purple");
+  fill("blue");
   textAlign(CENTER);
   text("Setas venceu",metadeTela+metadeTela/2  ,altura/2);
 }
@@ -107,10 +108,10 @@ function setasVenceu(){
 function mostraPlacar(){
   textSize(30);
   
-  fill("Black");
+  fill("purple");
   text(meuPlacar, 3/4* larguraTela, 30);
   
-  fill("Red");
+  fill("pink");
   text(placarOponente, larguraTela/4, 30);
     
 }
@@ -139,6 +140,7 @@ function detectaColisaoBolinhaRaquetes(){
     }
   } 
 }
+
 
 function movimentaRaqueteOponente(){
   //console.log("y: " + yMinhaRaquete);
@@ -178,20 +180,20 @@ function movimentaMinhaRaquete(){
   }
   if(keyIsDown(RIGHT_ARROW)){//Para direita
     if(xMinhaRaquete < (larguraTela - larguraRaquete))//Parede direita
-      xMinhaRaquete += velocidadeRaquete;
+      xMinhaRaquete += 10;
   }
 }
 
 function mostraRaquetes(){
-  fill("Black");
+  fill("white");
   rect(xMinhaRaquete, yMinhaRaquete, larguraRaquete, alturaRaquete);
   
-  fill("Red");
+  fill("orange");
   rect(xRaqueteOponente, yRaqueteOponente, larguraRaquete, alturaRaquete);
 }
 
 function mostraBolinha(){
-  fill("White");
+  fill("black");
   noStroke();
   circle(xBolinha,yBolinha,diametro);
 }//Fim mostra Bolinha
@@ -209,16 +211,18 @@ function detectaColisao(){
     velocidadeX *= -1;//velocidade * (-1)    
     placarOponente += 1;
     somPonto.play();
-    velocidadeX -= aumentodaVelocidade;
-    velocidadeY -= aumentodaVelocidade;
+    velocidadeX -= aumentoVelocidade;
+    velocidadeY -= aumentoVelocidade;
+   
   }  
   //Lado esquerdo - Lado do Oponente
   if(xBolinha - raio <= 0){
     velocidadeX *= -1;//velocidade * (-1)    
     meuPlacar += 1;
     somPonto.play();
-    velocidadeX += aumentodaVelocidade;
-    velocidadeY += aumentodaVelocidade;
+    velocidadeX += aumentoVelocidade;
+    velocidadeY += aumentoVelocidade;
+   
   }
 
   //Colisão com as bordas superior e inferior
