@@ -23,7 +23,6 @@ function verificaVencedor(){
 }
 
 function vacaVencedora(){
-  vitoria.play();
   background("Cian");
   textStyle(BOLD);
   textAlign(CENTER);
@@ -34,7 +33,6 @@ function vacaVencedora(){
 }
 
 function touroVencedor(){
-  vitoria.play();
   background("DarkOrchid");
   textStyle(BOLD);
   textAlign(CENTER);
