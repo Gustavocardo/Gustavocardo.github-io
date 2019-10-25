@@ -32,7 +32,6 @@ imgTouro = loadImage('imagens/ferdinando.png');
   ponto = loadSound('sons/pontos.wav');
   atropelou = loadSound('sons/colidiu.mp3');
   trilha = loadSound('sons/trilha.mp3');
-  vitoria = loadSound('sons/Vaca_Louca.mp3');
   
 }
 //Vetores
